@@ -1,0 +1,45 @@
+name: Node.js Package (NPM)
+
+on:
+    workflow_dispatch:
+#    push:
+
+jobs:
+    verify:
+        uses: Bracketed/Workflows/.github/workflows/Version-Check.yml@main
+        name: Version Check
+        permissions:
+            contents: write
+            actions: write
+        secrets:
+            BRSFTWORKS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+            project-name: '@bracketed/package'
+            checkout-depth: 2
+            checkout-ref: master
+            cancel-on-same: true
+
+    test:
+        needs: verify
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4.2.0
+            - uses: actions/setup-node@v4.0.4
+              with:
+                  node-version: 24
+            - run: npm install --force
+            - run: npm run build
+
+    publish:
+        needs: [test, verify]
+        uses: Bracketed/Workflows/.github/workflows/Package-Publish.yml@main
+        permissions:
+            contents: write
+            id-token: write
+            actions: write
+        with:
+            project-name: '@bracketed/package'
+            checkout-ref: master
+        secrets:
+            BRSFTWORKS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            NODE_AUTH_TOKEN: ${{secrets.NODE_PUBLISH}}
