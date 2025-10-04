@@ -2,8 +2,10 @@
 	"extends": ["@bracketed/typescript-config/tsup-strict"],
 	"compilerOptions": {
 		"incremental": false,
+		"moduleResolution": "bundler",
 		"module": "ESNext",
 		"baseUrl": ".",
+		"lib": ["ESNext", "DOM"],
 		"rootDir": "./src",
 		"outDir": "./lib"
 	},

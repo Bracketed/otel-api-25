@@ -1,9 +1,9 @@
 {
-	"name": "@bracketed/package",
-	"description": "Description",
+	"name": "@bracketed/otel-api",
+	"description": "@opentelementery/api but ported to suit modern uses. (2025)",
 	"packageManager": "yarn@4.9.2",
-	"version": "1.0.0",
-	"private": true,
+	"version": "1.9.0",
+	"private": false,
 	"publishConfig": {
 		"access": "public"
 	},
@@ -24,29 +24,34 @@
 			}
 		}
 	},
-	"files": [
-		"lib"
-	],
+	"files": ["lib"],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/bracketed/templates-package"
+		"url": "https://github.com/bracketed/otel-api-25"
 	},
-	"homepage": "https://bracketed.co.uk",
+	"homepage": "https://github.com/bracketed/otel-api-25",
 	"sideEffects": false,
 	"bugs": {
-		"url": "https://github.com/bracketed/templates-package/issues"
+		"url": "https://github.com/bracketed/otel-api-25/issues"
 	},
 	"keywords": [
 		"bracketed",
-		"typescript"
+		"typescript",
+		"opentelemetry",
+		"nodejs",
+		"browser",
+		"tracing",
+		"profiling",
+		"stats",
+		"monitoring"
 	],
 	"scripts": {
-		"lint": "yarn prettier --write .",
-		"validate": "yarn prettier --check .",
 		"build": "tsup",
 		"update": "yarn upgrade-interactive"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "^2.2.5",
+		"@bracketed/tsup-configuration": "^1.0.5",
 		"@bracketed/typescript-config": "^4.7.1",
 		"@swc/core": "^1.12.5",
 		"@types/node": "^24.0.3",
@@ -55,7 +60,6 @@
 		"esbuild-plugin-copy": "^2.1.1",
 		"esbuild-plugin-file-path-extensions": "^2.1.4",
 		"esbuild-plugin-version-injector": "^1.2.1",
-		"prettier": "^3.5.3",
 		"tslib": "^2.8.1",
 		"tsup": "^8.5.0",
 		"typescript": "^5.8.3"
@@ -64,6 +68,6 @@
 		"node": ">=18"
 	},
 	"dependencies": {
-		"@bracketed/tsup-configuration": "^1.0.5"
+		"read-package-up": "^11.0.0"
 	}
 }
