@@ -2,8 +2,7 @@
 	"name": "@bracketed/otel-api",
 	"description": "@opentelementery/api but ported to suit modern uses. (2025)",
 	"packageManager": "yarn@4.9.2",
-	"version": "1.9.0",
-	"private": false,
+	"version": "1.9.1",
 	"publishConfig": {
 		"access": "public"
 	},
@@ -66,8 +65,5 @@
 	},
 	"engines": {
 		"node": ">=18"
-	},
-	"dependencies": {
-		"read-package-up": "^11.0.0"
 	}
 }
