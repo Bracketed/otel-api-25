@@ -2,7 +2,7 @@ name: Node.js Package (NPM)
 
 on:
     workflow_dispatch:
-#    push:
+    push:
 
 jobs:
     test:
@@ -24,7 +24,7 @@ jobs:
             actions: write
         with:
             project-name: "@bracketed/otel-api"
-            checkout-ref: master
+            checkout-ref: main
         secrets:
             BRSFTWORKS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             NODE_AUTH_TOKEN: ${{secrets.NODE_PUBLISH}}
