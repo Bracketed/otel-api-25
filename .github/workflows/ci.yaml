@@ -5,22 +5,7 @@ on:
 #    push:
 
 jobs:
-    verify:
-        uses: Bracketed/Workflows/.github/workflows/Version-Check.yml@main
-        name: Version Check
-        permissions:
-            contents: write
-            actions: write
-        secrets:
-            BRSFTWORKS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-            project-name: '@bracketed/package'
-            checkout-depth: 2
-            checkout-ref: master
-            cancel-on-same: true
-
     test:
-        needs: verify
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4.2.0
@@ -31,14 +16,14 @@ jobs:
             - run: npm run build
 
     publish:
-        needs: [test, verify]
+        needs: test
         uses: Bracketed/Workflows/.github/workflows/Package-Publish.yml@main
         permissions:
             contents: write
             id-token: write
             actions: write
         with:
-            project-name: '@bracketed/package'
+            project-name: "@bracketed/otel-api"
             checkout-ref: master
         secrets:
             BRSFTWORKS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
