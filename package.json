@@ -27,12 +27,12 @@
 	"files": ["lib"],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/bracketed/otel-api-25"
+		"url": "https://github.com/Bracketed/otel-api-25"
 	},
-	"homepage": "https://github.com/bracketed/otel-api-25",
+	"homepage": "https://github.com/Bracketed/otel-api-25",
 	"sideEffects": false,
 	"bugs": {
-		"url": "https://github.com/bracketed/otel-api-25/issues"
+		"url": "https://github.com/Bracketed/otel-api-25/issues"
 	},
 	"keywords": [
 		"bracketed",
